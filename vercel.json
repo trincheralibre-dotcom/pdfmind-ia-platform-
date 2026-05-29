@@ -1,0 +1,8 @@
+{
+  "buildCommand": "echo 'Building PDFMind'",
+  "outputDirectory": "./frontend",
+  "framework": "other",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
