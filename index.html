@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFMind IA - Edición PDF Inteligente con IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .plan {
+            padding: 30px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .plan:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .plan h3 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .plan .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #333;
+            margin: 15px 0;
+        }
+        
+        .plan.premium {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .plan.premium h3,
+        .plan.premium .price {
+            color: white;
+        }
+        
+        .plan ul {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .plan li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .plan.premium li {
+            border-bottom-color: rgba(255,255,255,0.2);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+        
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .plan.premium button {
+            background: white;
+            color: #667eea;
+        }
+        
+        .chatbot-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .chatbot-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .error-message {
+            background: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 10px 5px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .features, .plans {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 PDFMind IA</h1>
+            <p>Edición PDF Inteligente con IA - Stripe & Firma Digital</p>
+        </header>
+        
+        <div class="content">
+            <div class="error-message">
+                ⚠️ <strong>Sitio en Construcción:</strong> Los archivos están siendo procesados. Por favor, abre el chatbot o descarga la aplicación.
+            </div>
+            
+            <h2 style="color: #667eea; text-align: center; margin: 30px 0;">✨ Características Principales</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>🤖 IA Inteligente</h3>
+                    <p>Conversión automática con Claude IA + 10 features exclusivas</p>
+                </div>
+                <div class="feature">
+                    <h3>💳 Pagos Stripe</h3>
+                    <p>Sistema de suscripción seguro y confiable</p>
+                </div>
+                <div class="feature">
+                    <h3>🔐 Firma eIDAS</h3>
+                    <p>Firma digital legal en PDF</p>
+                </div>
+                <div class="feature">
+                    <h3>🌍 40 Idiomas</h3>
+                    <p>Soporte global con i18n completo</p>
+                </div>
+                <div class="feature">
+                    <h3>⚡ 120+ Funciones</h3>
+                    <p>Más opciones que iLovePDF y Adobe</p>
+                </div>
+                <div class="feature">
+                    <h3>📱 Responsive</h3>
+                    <p>Funciona en móvil, tablet y desktop</p>
+                </div>
+            </div>
+            
+            <h2 style="color: #667eea; text-align: center; margin: 40px 0;">💰 Planes y Precios</h2>
+            
+            <div class="plans">
+                <div class="plan">
+                    <h3>Free</h3>
+                    <div class="price">€0</div>
+                    <p>Perfecto para empezar</p>
+                    <ul>
+                        <li>✓ 5 PDFs/mes</li>
+                        <li>✓ 50MB máximo</li>
+                        <li>✓ Conversiones básicas</li>
+                        <li>✗ IA avanzada</li>
+                    </ul>
+                    <button>Comenzar Gratis</button>
+                </div>
+                
+                <div class="plan premium">
+                    <h3>Premium</h3>
+                    <div class="price">€9</div>
+                    <p>Lo más vendido - Recomendado</p>
+                    <ul>
+                        <li>✓ PDFs ilimitados</li>
+                        <li>✓ 500MB por archivo</li>
+                        <li>✓ 23+ formatos</li>
+                        <li>✓ 10 features IA exclusivos</li>
+                        <li>✓ Firma eIDAS GRATIS</li>
+                        <li>✓ Email automático</li>
+                        <li>✓ Soporte 24/7</li>
+                    </ul>
+                    <button>Suscribirse Ahora</button>
+                </div>
+                
+                <div class="plan">
+                    <h3>Business</h3>
+                    <div class="price">€29</div>
+                    <p>Para equipos</p>
+                    <ul>
+                        <li>✓ Todo Premium +</li>
+                        <li>✓ Multi-usuario</li>
+                        <li>✓ Webhooks API</li>
+                        <li>✓ Account manager</li>
+                    </ul>
+                    <button>Contactar Ventas</button>
+                </div>
+            </div>
+            
+            <div class="chatbot-section">
+                <h2>💬 Chatbot IA Inteligente</h2>
+                <p style="margin-bottom: 20px;">Pregunta lo que necesites sobre PDFMind - Disponible 24/7</p>
+                <button onclick="alert('🤖 Chatbot en desarrollo - Usa el formulario de contacto por ahora')">Abrir Chatbot</button>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <h3 style="color: #667eea; margin-bottom: 15px;">Nuestros Badges</h3>
+                <div>
+                    <span class="badge">⭐ 5/5 Estrellas</span>
+                    <span class="badge">🏆 Mejor Opción 2024</span>
+                    <span class="badge">🚀 Startup Destacada</span>
+                    <span class="badge">🔒 GDPR Compliant</span>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p><strong>PDFMind IA</strong> - Edición PDF Inteligente con Tecnología IA</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                © 2026 PDFMind. Todos los derechos reservados. | 
+                <a href="#" style="color: #667eea; text-decoration: none;">Privacidad</a> | 
+                <a href="#" style="color: #667eea; text-decoration: none;">Términos</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
